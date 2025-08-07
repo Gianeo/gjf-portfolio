@@ -97,11 +97,9 @@ export default function SmoothScrollLayout({ children }: SmoothScrollLayoutProps
 // Import the Navigation, Hero, and Products components
 import Navigation from '@/components/navigation/Navigation'
 import Hero from '@/components/sections/Hero'
-import ProductsShowcase from '@/components/sections/ProductsShowcase'
-import ClientsCarousel from '@/components/sections/ClientsCarousel'
-import PastWorkGrid from '@/components/sections/PastWorkPortfolio'
-import WhatWeDo from '@/components/sections/WhatWeDo'
-import Lab from '@/components/sections/Lab'
+import ClientsLogos from "@/components/sections/ClientsLogos";
+import WorkHistory from "@/components/sections/WorkHistory";
+import PersonalProfile from "@/components/sections/Profile";
 
 // Demo component showcasing the complete layout with all sections
 function DemoPage() {
@@ -119,11 +117,9 @@ function DemoPage() {
       <Hero />
       
       {/* Interactive Products Showcase */}
-      <ProductsShowcase />
-      <ClientsCarousel />
-      <PastWorkGrid />
-      <WhatWeDo />
-      <Lab />
+      <ClientsLogos />
+      <WorkHistory />
+      <PersonalProfile />
     </SmoothScrollLayout>
   )
 }

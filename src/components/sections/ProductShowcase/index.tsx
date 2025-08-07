@@ -6,9 +6,8 @@ import { useInView } from "react-intersection-observer";
 import {
   ArrowRight,
   Calendar,
-  User,
   Tag,
-  Link as ExternalLink,
+  // Link as ExternalLink, // Commented out unused import
 } from "phosphor-react";
 
 interface ProjectData {
@@ -42,7 +41,7 @@ const sampleProject: ProjectData = {
 
 interface ProjectShowcaseProps {
   project?: ProjectData;
-  onBack?: () => void;
+  // onBack?: () => void; // Commented out unused prop
 }
 
 // Memoized optimized image component with lazy loading
@@ -115,7 +114,7 @@ OptimizedImageContainer.displayName = 'OptimizedImageContainer';
 
 export default function ProductShowcase({
   project = sampleProject,
-  onBack,
+  // onBack, // Removed unused parameter
 }: ProjectShowcaseProps) {
   
   // Memoize image organization to prevent recalculation

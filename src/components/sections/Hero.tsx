@@ -133,27 +133,27 @@ const ContentSection = memo(() => (
       className="font-heading font-semibold text-5xl md:text-6xl heading-tight mb-8 xl:mb-8 px-6 lg:px-0"
     >
       <span className="text-foreground">Design+</span>{" "}
-      <span className="text-neutral-600">for what's now—and next.</span>
+      <span className="text-neutral-600">for what&apos;s now—and next.</span>
     </h1>
 
     {/* Main description with proper semantic structure */}
     <div className="font-copy text-lg md:text-lg text-muted-foreground leading-relaxed max-w-lg mb-12 prose-optimized px-6 lg:px-0 space-y-4">
       <p>
-        You've got something in motion. A team pushing hard. A roadmap full of ambition. 
-        Some pieces clicking, others... not quite. It's not failure—it's friction. 
-        Familiar, persistent, and hard to name. You're not looking for a silver bullet. 
-        You want clarity. Someone who sees the shape of what you're building, cuts through noise, 
+        You&apos;ve got something in motion. A team pushing hard. A roadmap full of ambition. 
+        Some pieces clicking, others... not quite. It&apos;s not failure—it&apos;s friction. 
+        Familiar, persistent, and hard to name. You&apos;re not looking for a silver bullet. 
+        You want clarity. Someone who sees the shape of what you&apos;re building, cuts through noise, 
         and helps the team move like one.
       </p>
       
       <p>
-        <strong>That's where I come in.</strong>
+        <strong>That&apos;s where I come in.</strong>
       </p>
       
       <p>
         Not to take over, not to slow things down—but to ask better questions, tune the system, 
         and bring just enough order to let the work speak. I bring taste, too—the kind that helps 
-        customers feel what's right before they know why it matters.
+        customers feel what&apos;s right before they know why it matters.
         <br />
         <em>Not disruptive. Just effective.</em>
       </p>

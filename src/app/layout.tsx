@@ -1,4 +1,5 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+import Script from 'next/script';
 import { switzer, azeretMono } from "@/lib/fonts"; 
 import "./globals.css";
 
@@ -223,24 +224,21 @@ export default function RootLayout({
         
         {children}
         
-        {/* Performance monitoring - only in production */}
+        {/* Google Analytics using Next.js Script component - only in production */}
         {process.env.NODE_ENV === 'production' && (
           <>
-            {/* Google Analytics - replace with your tracking ID */}
-            <script
-              async
+            <Script
               src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"
+              strategy="afterInteractive"
             />
-            <script
-              dangerouslySetInnerHTML={{
-                __html: `
-                  window.dataLayer = window.dataLayer || [];
-                  function gtag(){dataLayer.push(arguments);}
-                  gtag('js', new Date());
-                  gtag('config', 'GA_MEASUREMENT_ID');
-                `,
-              }}
-            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'GA_MEASUREMENT_ID');
+              `}
+            </Script>
           </>
         )}
       </body>

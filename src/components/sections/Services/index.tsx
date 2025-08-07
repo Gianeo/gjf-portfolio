@@ -3,12 +3,7 @@
 import { memo, useMemo } from "react";
 import {
   ArrowRightIcon,
-  ChartBarIcon,
-  PaletteIcon,
-  CodeIcon,
   BuildingIcon,
-  BriefcaseIcon,
-  StarIcon,
 } from "@phosphor-icons/react";
 
 // Import the data structure
@@ -72,7 +67,7 @@ const IndustryList = memo(({
 IndustryList.displayName = 'IndustryList';
 
 // Memoized header section - consistent with other components
-const HeaderSection = memo(({ tagline }: { tagline: string }) => (
+const HeaderSection = memo(() => (
   <header className="sticky top-0 z-50 glass border-b border-border/50">
     <div className="flex justify-between px-6 lg:px-12 py-4">
       <div className="flex items-center gap-4 text-xs font-mono text-muted-foreground">
@@ -166,7 +161,7 @@ export default function Services({
 
   return (
     <div className="bg-background text-foreground">
-      <HeaderSection tagline={memoizedStudioData.tagline} />
+      <HeaderSection />
 
       <HeroSection 
         tagline={memoizedStudioData.tagline}

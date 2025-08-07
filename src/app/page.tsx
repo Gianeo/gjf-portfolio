@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import Navigation from "@/components/navigation/Navigation";
 import Hero from "@/components/sections/Hero";
-import ProductShowcase from "@/components/sections/ProductShowcase";
+// import ProductShowcase from "@/components/sections/ProductShowcase";
 import ClientsLogos from "@/components/sections/ClientsLogos";
 import WorkHistory from "@/components/sections/WorkHistory";
 import PersonalProfile from "@/components/sections/Profile";
-import Services from "@/components/sections/Services";
+// import Services from "@/components/sections/Services";
 
 // Page-specific metadata that extends the root layout
 export const metadata: Metadata = {
@@ -90,7 +90,7 @@ export default function HomePage() {
           aria-label="Client companies and partnerships"
         >
           <h2 id="clients-heading" className="sr-only">
-            Companies I've worked with
+            Companies I&apos;ve worked with
           </h2>
           <ClientsLogos />
         </section>
@@ -156,7 +156,7 @@ export default function HomePage() {
         aria-label="Site footer and additional information"
       >
         {/* Footer content will go here when you create a Footer component */}
-        <p>© 2025 Gianni Favaretto. All rights reserved.</p>
+        <p>&copy; 2025 Gianni Favaretto. All rights reserved.</p>
       </footer>
     </>
   );
