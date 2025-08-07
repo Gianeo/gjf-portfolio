@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<browserconfig>
+  <msapplication>
+    <!-- Basic Windows Tile Configuration -->
+    <tile>
+      <square150x150logo src="/mstile-150x150.png"/>
+      <TileColor>#ffffff</TileColor>
+    </tile>
+    
+    <!-- Application Info -->
+    <application>
+      <meta name="msapplication-TileColor" content="#ffffff"/>
+      <meta name="msapplication-TileImage" content="/mstile-150x150.png"/>
+      <meta name="msapplication-tooltip" content="Gianni Favaretto - Design Leadership Portfolio"/>
+      <meta name="msapplication-starturl" content="https://giannifavaretto.com"/>
+      <meta name="msapplication-navbutton-color" content="#ffffff"/>
+    </application>
+  </msapplication>
+</browserconfig>

@@ -1,0 +1,27 @@
+{
+  "name": "Gianni Favaretto - Design Leadership Portfolio",
+  "short_name": "Gianni Favaretto",
+  "description": "Senior Design Leader with 25+ years experience building design teams and products at scale.",
+  "lang": "en-US",
+  "start_url": "/",
+  "display": "browser",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
