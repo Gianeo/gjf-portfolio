@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useCallback, useMemo, memo } from "react";
-import { ArrowRight, Play, Tag, User, Calendar } from "phosphor-react";
+import { Tag } from "phosphor-react"; // Only import what we actually use
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 import { LogoGf } from "@/components/logo/LogoGf";

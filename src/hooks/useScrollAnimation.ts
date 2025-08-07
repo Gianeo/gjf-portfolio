@@ -44,7 +44,7 @@ export function useScrollAnimation(options = {}) {
 
     observer.observe(element)
     return () => observer.disconnect()
-  }, [])
+  }, [defaultOptions.threshold, defaultOptions.rootMargin, defaultOptions.triggerOnce]) // Added missing dependencies
 
   return elementRef
 }

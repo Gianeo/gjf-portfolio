@@ -103,10 +103,11 @@ import PersonalProfile from "@/components/sections/Profile";
 
 // Demo component showcasing the complete layout with all sections
 function DemoPage() {
-  const clientsRef = useScrollAnimation()
-  const workRef = useScrollAnimation()
-  const whatWeDoRef = useScrollAnimation()
-  const labRef = useScrollAnimation()
+  // Commented out unused scroll animation refs - ready for future animation features
+  // const clientsRef = useScrollAnimation()
+  // const workRef = useScrollAnimation()
+  // const whatWeDoRef = useScrollAnimation()
+  // const labRef = useScrollAnimation()
 
   return (
     <SmoothScrollLayout>
@@ -123,5 +124,3 @@ function DemoPage() {
     </SmoothScrollLayout>
   )
 }
-
-export { DemoPage }
