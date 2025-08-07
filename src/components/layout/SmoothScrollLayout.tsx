@@ -3,7 +3,6 @@
 
 import { useEffect, useRef, createContext, useContext } from 'react'
 import Lenis from 'lenis'
-import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 
 interface SmoothScrollLayoutProps {
   children: React.ReactNode
@@ -94,33 +93,3 @@ export default function SmoothScrollLayout({ children }: SmoothScrollLayoutProps
   )
 }
 
-// Import the Navigation, Hero, and Products components
-import Navigation from '@/components/navigation/Navigation'
-import Hero from '@/components/sections/Hero'
-import ClientsLogos from "@/components/sections/ClientsLogos";
-import WorkHistory from "@/components/sections/WorkHistory";
-import PersonalProfile from "@/components/sections/Profile";
-
-// Demo component showcasing the complete layout with all sections
-function DemoPage() {
-  // Commented out unused scroll animation refs - ready for future animation features
-  // const clientsRef = useScrollAnimation()
-  // const workRef = useScrollAnimation()
-  // const whatWeDoRef = useScrollAnimation()
-  // const labRef = useScrollAnimation()
-
-  return (
-    <SmoothScrollLayout>
-      {/* Beautiful Navigation with Scroll Progress */}
-      <Navigation />
-      
-      {/* Stunning Hero Section */}
-      <Hero />
-      
-      {/* Interactive Products Showcase */}
-      <ClientsLogos />
-      <WorkHistory />
-      <PersonalProfile />
-    </SmoothScrollLayout>
-  )
-}

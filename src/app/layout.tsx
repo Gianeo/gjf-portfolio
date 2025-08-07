@@ -1,4 +1,4 @@
-import type { Metadata, Viewport } from "next";
+import type { Metadata } from "next";
 import Script from 'next/script';
 import { switzer, azeretMono } from "@/lib/fonts"; 
 import "./globals.css";
@@ -56,18 +56,6 @@ export const metadata: Metadata = {
     title: "Gianni Favaretto - Senior Design Leader & Product Strategist",
     description: "Senior Design Leader with 25+ years experience building design teams and products at scale.",
     images: ["/images/og-image.jpg"],
-  },
-  
-  // Viewport with enhanced settings
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 5,
-    userScalable: true,
-    // themeColor: [
-    //   { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    //   { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" }
-    // ],
   },
   
   // Technical SEO
@@ -198,6 +186,9 @@ export default function RootLayout({
         
         {/* Canonical URL - will be overridden by page-specific canonicals */}
         <link rel="canonical" href="https://giannifavaretto.com" />
+        
+        {/* Viewport meta tag */}
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes" />
         
         {/* Preconnect to external domains for performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
