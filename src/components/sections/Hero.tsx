@@ -274,15 +274,15 @@ export default function HeroSection({ className = "" }: HeroSectionProps) {
             "@context": "https://schema.org",
             "@type": "AboutPage",
             "name": "About Gianni Favaretto - Design Leadership",
-            "description": "Senior Design Leader with 25+ years experience. Specializing in design systems, team leadership, and product strategy across fintech, e-commerce, and SaaS.",
+            "description": "Designer, Leader and Product Strategist known for blending design craftsmanship with strategic vision. Builds products, brands, and design systems at scale—uniting usability, visual precision, and scalable processes across fintech, e-commerce, SaaS, and emerging AI platforms.",
             "mainEntity": {
               "@type": "Person",
               "name": "Gianni Favaretto",
-              "jobTitle": "Senior Design Leader & Product Strategist",
+              "jobTitle": "Designer and Leader",
               "description": "Design leader focused on building effective teams, creating scalable systems, and delivering meaningful user experiences.",
               "knowsAbout": [
                 "Design Leadership",
-                "Product Strategy", 
+                "End-to-end design", 
                 "Design Systems",
                 "Team Management",
                 "User Experience Design",

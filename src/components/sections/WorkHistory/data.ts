@@ -471,7 +471,7 @@ export interface GridItem {
       duration: "Sep 2012 - Apr 2016",
       startDate: "2012-09",
       endDate: "2016-04",
-      title: "Where there was nothing, now a multi-brand platform.",
+      title: "From nothing to a set of brands, built as one.",
       description: "At Ocado, I led UX and product design for the General Merchandise vertical—spanning beauty (Fabled), pet supplies (Fetch), and kitchenware (Sizzle). I shaped all UX, UI, and brand identity across these destination sites, collaborating with merchandisers, marketers, engineering, and brand teams. We built mobile-first, visually compelling, and accessible commerce platforms that broke new ground in niche markets",
       keyResponsibilities: [
         "Launched Fabled, Fetch, and Sizzle, each with a unique brand and design language.",

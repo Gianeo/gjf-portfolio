@@ -10,16 +10,16 @@ import PersonalProfile from "@/components/sections/Profile";
 // Page-specific metadata that extends the root layout
 export const metadata: Metadata = {
   title: "Gianni Favaretto - Design Leadership Portfolio",
-  description: "Angelic troublemaker, sceptical optimist. 25+ years designing and leading teams from 0-1 to enterprises. Currently building JustScore.",
+  description: "Designer and Leader with 20+ years experience building design teams and products at scale. Currently building JustScore.",
   openGraph: {
     title: "Gianni Favaretto - Design Leadership Portfolio",
-    description: "Angelic troublemaker, sceptical optimist. 25+ years designing and leading teams from 0-1 to enterprises.",
+    description: "Designer and Leader with 20+ years experience building design teams and products at scale.",
     url: "https://giannifavaretto.com",
     type: "website",
   },
   twitter: {
     title: "Gianni Favaretto - Design Leadership Portfolio",
-    description: "Angelic troublemaker, sceptical optimist. 25+ years designing and leading teams from 0-1 to enterprises.",
+    description: "Designer and Leader with 20+ years experience building design teams and products at scale.",
   },
   alternates: {
     canonical: "https://giannifavaretto.com",
@@ -31,7 +31,7 @@ const portfolioStructuredData = {
   "@context": "https://schema.org",
   "@type": "Portfolio",
   "name": "Gianni Favaretto Design Leadership Portfolio",
-  "description": "Professional portfolio showcasing 25+ years of design leadership experience across fintech, e-commerce, and SaaS",
+  "description": "Professional portfolio showcasing 20+ years of design leadership experience across fintech, e-commerce, and SaaS",
   "creator": {
     "@type": "Person",
     "name": "Gianni Favaretto",
