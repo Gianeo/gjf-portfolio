@@ -252,7 +252,7 @@ const HeroSection = memo(({ profile }: { profile: PersonalProfile }) => (
 
       {/* Main heading with proper structure */}
       <h1 
-        className="font-heading font-semibold text-5xl leading-13 heading-tight mb-6"
+        className="font-heading font-bold text-5xl leading-13 heading-tight mb-6"
         id="profile-heading"
       >
         {formatTextWithLineBreaks(profile.name)}

@@ -281,7 +281,7 @@ const WorkExperienceEntry = memo(({
         {/* Work experience header */}
         <header className="space-y-8">
           <h3 
-            className="font-heading font-semibold text-5xl heading-normal leading-13 max-w-lg lg:-mt-1.5"
+            className="font-heading font-bold text-5xl heading-normal leading-13 max-w-lg lg:-mt-1.5"
             id={`work-${experience.id}`}
           >
             {experience.title}
@@ -304,20 +304,20 @@ const WorkExperienceEntry = memo(({
           <h4 id={`responsibilities-${experience.id}`} className="sr-only">
             Key Responsibilities at {experience.company}
           </h4>
-          <div className="max-w-4xl">
+          <div className="max-w-2xl">
             <ul 
-              className="space-y-1.5 grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-10"
+              className="space-y-1.5 grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8"
               role="list"
               aria-label={`Key achievements and responsibilities at ${experience.company}`}
             >
               {experience.keyResponsibilities.map((responsibility, index) => (
                 <li
                   key={index}
-                  className="flex items-start gap-3 text-base font-copy text-muted-foreground p-4"
+                  className="flex items-start gap-3 text-xs font-copy text-muted-foreground"
                   role="listitem"
                 >
                   <span 
-                    className="size-2 rounded-full bg-primary mt-2 flex-shrink-0" 
+                    className="size-2 rounded-full bg-primary mt-1 flex-shrink-0" 
                     aria-hidden="true"
                   />
                   <span>{responsibility}</span>

@@ -102,9 +102,9 @@ TextCell.displayName = 'TextCell';
 
 // Memoized logo section
 const LogoSection = memo(() => (
-  <div className="mb-12 px-6 lg:px-0">
+  <div className="mb-6 lg:mb-12 px-6 lg:px-0">
     <LogoGf 
-      className="w-40 lg:w-48 xl:w-64 h-auto mx-auto sm:ml-0" 
+      className="w-32 lg:w-48 xl:w-56 h-auto" 
       aria-label="Gianni Favaretto professional logo"
     />
   </div>
@@ -114,10 +114,10 @@ LogoSection.displayName = 'LogoSection';
 
 // Memoized badge section
 const BadgeSection = memo(() => (
-  <div className="flex flex-wrap gap-4 mb-6 text-xs text-muted-foreground px-6 lg:px-0">
+  <div className="flex flex-wrap gap-4 mb-4 text-xs text-muted-foreground px-6 lg:px-0">
     <div className="flex items-center gap-2 font-mono" role="text">
       <Tag size={16} aria-hidden="true" />
-      <span>From craftsmanship to Leadership.</span>
+      <span>Craftsmanship + Leadership.</span>
     </div>
   </div>
 ));
@@ -130,10 +130,9 @@ const ContentSection = memo(() => (
     {/* Main heading with proper hierarchy */}
     <h1 
       id="hero-heading"
-      className="font-heading font-semibold text-5xl md:text-6xl heading-tight mb-8 xl:mb-8 px-6 lg:px-0"
+      className="font-heading font-bold text-5xl md:text-6xl heading-tight text-foreground mb-8 xl:mb-8 px-6 lg:px-0"
     >
-      <span className="text-foreground">Design+</span>{" "}
-      <span className="text-neutral-600">for what&apos;s now—and next.</span>
+      Design+ for what&apos;s now—and next.
     </h1>
 
     {/* Main description with proper semantic structure */}

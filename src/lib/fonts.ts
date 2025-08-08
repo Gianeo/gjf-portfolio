@@ -19,6 +19,11 @@ export const switzer = localFont({
       weight: '600',
       style: 'normal',
     },
+    {
+      path: '../../public/fonts/Switzer-Bold.woff2',
+      weight: '700',
+      style: 'normal',
+    },
   ],
   variable: '--font-switzer',
   display: 'swap',
