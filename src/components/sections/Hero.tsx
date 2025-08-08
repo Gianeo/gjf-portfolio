@@ -138,11 +138,7 @@ const ContentSection = memo(() => (
     {/* Main description with proper semantic structure */}
     <div className="font-copy text-lg md:text-lg text-muted-foreground leading-relaxed max-w-lg mb-12 prose-optimized px-6 lg:px-0 space-y-4">
       <p>
-        You&apos;ve got something in motion. A team pushing hard. A roadmap full of ambition. 
-        Some pieces clicking, others... not quite. It&apos;s not failure—it&apos;s friction. 
-        Familiar, persistent, and hard to name. You&apos;re not looking for a silver bullet. 
-        You want clarity. Someone who sees the shape of what you&apos;re building, cuts through noise, 
-        and helps the team move like one.
+        You&apos;ve got something in motion. A team pushing hard. A roadmap full of ambition. Some pieces clicking, others… not quite. It&apos;s not failure—it&apos;s friction. The kind that slows momentum, clouds decisions, and makes it harder to see the path ahead. You&apos;re not looking for a silver bullet. You want clarity. Someone who can see the whole thing end-to-end—how it works, how it looks, how it feels to use—and shape it into something that moves with purpose.
       </p>
       
       <p>
@@ -150,11 +146,10 @@ const ContentSection = memo(() => (
       </p>
       
       <p>
-        Not to take over, not to slow things down—but to ask better questions, tune the system, 
-        and bring just enough order to let the work speak. I bring taste, too—the kind that helps 
-        customers feel what&apos;s right before they know why it matters.
-        <br />
-        <em>Not disruptive. Just effective.</em>
+        I bring design that runs deep: usability grounded in insight, visual direction with taste, and systems that scale without losing agility. It&apos;s clarity made practical—so decisions get easier, teams move together, and the product holds up as it grows.
+      </p>
+      <p>
+        <em>Not disruptive. Just effective. <br />For the business, and for the people it serves.</em>
       </p>
     </div>
   </>

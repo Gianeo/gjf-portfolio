@@ -41,7 +41,7 @@ export interface GridItem {
       duration: "Jan 2025 - Today",
       startDate: "2025-01",
       endDate: "current",
-      title: "Execution from proof-of-concept to product.",
+      title: "Where an idea found its form and voice.",
       description: "I led the creation of JustScore end-to-end—from brand and UX to a polished, production-ready UI. The goal? A performance management platform that's simple, actionable, and genuinely motivating. I shaped not just the product, but the business: defining the model, pricing, and go-to-market. On the engineering side, I partnered closely with developers to keep the codebase scalable, performant, and clean. I also built reusable UI components to ensure design integrity carried through to production. \nAlong the way, I've been supported by my daughter—now growing into a confident co-founder, learning fast, and making decisions of her own. It's been part mentorship, part adventure.",
       keyResponsibilities: [
         "Bootstrapped the business to learn fast and hands-on.",
@@ -119,7 +119,7 @@ export interface GridItem {
       duration: "Nov 2020 - Dec 2024",
       startDate: "2020-11",
       endDate: "2024-12",
-      title: "Leading Product Design, Research, and Design Technology.",
+      title: "Scaling a Revenue Growth Management Platform.",
       description: "At Chargebee, I led Product Designers, UX Writers, Researchers, and Design Technologists across a complex, multi-product SaaS platform used by startups, scale-ups, and enterprise teams worldwide. My role spanned hands-on product leadership, cross-regional team building, and systems thinking—helping shape not just how the platform worked, but how the design org itself scaled. I worked closely with teams across the US, Europe, and India, creating space for designers to thrive while pushing the products and business forward.",
       keyResponsibilities: [
         "Moved from Director of Product Design to Senior Director of Product Design, Research, and Design Technology.",
@@ -295,7 +295,7 @@ export interface GridItem {
       duration: "Jan - Oct 2019",
       startDate: "2019-01",
       endDate: "2019-10",
-      title: "Leading UX & Product Design across the Argos multi-brand portfolio.",
+      title: "Leading Design in a multi-brand portfolio.",
       description: "I was brought in during a delicate transition—Argos shifting from independent business into the Sainsbury's group. My mandate: steady the design ship. I led a multidisciplinary team of 16 through organisation challenges, resolving internal friction and rebuilding trust across design, research, and content. Alongside this, I improved cross-functional collaboration with engineering, enhanced the design system, and led an initiative that saved the business a couple million pounds through assets optimisation.",
       keyResponsibilities: [
         "Led the UX design of Argos, Argos Financial Services, Tu Clothing, and Habitat.",
@@ -374,7 +374,7 @@ export interface GridItem {
       duration: "Mar 2015 - Jan 2019",
       startDate: "2015-03",
       endDate: "2019-01",
-      title: "Designing the Ocado Smart Platform experience.",
+      title: "From a blank canvas to the Ocado Smart Platform.",
       description: "I built from scratch and led the UX Design Chapter for the Ocado Smart Platform (OSP), a global online grocery solution built atop robotics, cloud, and big data. Starting with no design capability, I built a lean, international UX team across the UK, Poland, and Barcelona. Under tight timelines, we defined a unified user‑centred vision, introduced dual design systems (Aeris for B2B and Fraisy for B2C), and helped OSP mature into a cohesive, high‑trust product—key to securing partnerships with major retailers like Kroger (US), Sobeys (Canada) and Coles (Australia)",
       keyResponsibilities: [
         "Built and led a multidisciplinary UX team across UK, Poland, and Barcelona.",
@@ -471,7 +471,7 @@ export interface GridItem {
       duration: "Sep 2012 - Apr 2016",
       startDate: "2012-09",
       endDate: "2016-04",
-      title: "Designing the Ocado General Merchandise Platform.",
+      title: "Where there was nothing, now a multi-brand platform.",
       description: "At Ocado, I led UX and product design for the General Merchandise vertical—spanning beauty (Fabled), pet supplies (Fetch), and kitchenware (Sizzle). I shaped all UX, UI, and brand identity across these destination sites, collaborating with merchandisers, marketers, engineering, and brand teams. We built mobile-first, visually compelling, and accessible commerce platforms that broke new ground in niche markets",
       keyResponsibilities: [
         "Launched Fabled, Fetch, and Sizzle, each with a unique brand and design language.",
@@ -589,7 +589,7 @@ export interface GridItem {
       duration: "Mar 2010 - Sep 2012",
       startDate: "2010-03",
       endDate: "2012-09",
-      title: "Redesigning Ocado's ecommerce experience at scale.",
+      title: "Reinventing a grocery online experience at scale.",
       description: "I drove major UX enhancements at Ocado.com—optimizing search, navigation, and checkout to support rapid growth. Working cross-functionally with product, analytics, and engineering teams, we deployed data-informed improvements that significantly lifted conversion rates and reduced friction. Ocado moved from launch phase into industry leadership, going public and winning awards—all while I helped shape the experience foundations that underpinned that success.",
       keyResponsibilities: [
         "Redesigned search and navigation, improving findability and funnel efficiency.",
@@ -628,13 +628,14 @@ export interface GridItem {
       duration: "1999 - 2010",
       startDate: "1999-01",
       endDate: "2010-12",
-      title: "Designer, UI Developer, Trainer, Consultant.",
+      title: "From design to code, from teaching to guiding.",
       description: "Before moving into leadership roles, I built my foundations working across industries as a designer, UI developer, and consultant. I partnered with global brands—helping shape digital products, brand identities, and design strategy in fast-moving, often complex environments. These years gave me hands-on experience, adaptability, and a cross-industry lens I still bring to my work today.",
       keyResponsibilities: [
         "Collaborated with global leaders including Adobe, NASA, Sun Microsystems, ENI, Novartis, and Thomson Reuters.",
         "Designed user experiences and brand assets tailored to diverse sectors and audiences.",
         "Worked across international teams.",
         "Awarded Macromedia Site of the Month for accessibility and design.",
+        "Selected to be one of the few Macromedia spacialist consultants in Italy.",
         "Recognised for accessibility excellence in government portals."
       ],
       gridItems: []
