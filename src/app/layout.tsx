@@ -212,7 +212,7 @@ export default function RootLayout({
         className={`${switzer.variable} ${azeretMono.variable} font-copy antialiased`}
         suppressHydrationWarning
       >
-        <FullStory orgId="YOUR_FULLSTORY_ORG_ID" />
+        <FullStory orgId="C5N0G" />
 
         {/* Skip to main content link for accessibility */}
         <a
