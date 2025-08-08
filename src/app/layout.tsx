@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Script from 'next/script';
 import { switzer, azeretMono } from "@/lib/fonts";
 import "./globals.css";
+import FullStory from '@/components/analytics/FullStory';
 
 // Enhanced metadata with comprehensive SEO
 export const metadata: Metadata = {
@@ -205,11 +206,14 @@ export default function RootLayout({
         {/* Security headers */}
         <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
         <meta httpEquiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+        
       </head>
       <body
         className={`${switzer.variable} ${azeretMono.variable} font-copy antialiased`}
         suppressHydrationWarning
       >
+        <FullStory orgId="YOUR_FULLSTORY_ORG_ID" />
+
         {/* Skip to main content link for accessibility */}
         <a
           href="#main-content"
