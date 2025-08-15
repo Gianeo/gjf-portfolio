@@ -42,7 +42,7 @@ export interface GridItem {
       startDate: "2025-01",
       endDate: "current",
       title: "Where an idea found its form and function.",
-      description: "I led the creation of JustScore end-to-end—from brand and UX to a polished, production-ready UI. The goal? A performance management platform that's simple, actionable, and genuinely motivating. I shaped not just the product, but the business: defining the model, pricing, and go-to-market. On the engineering side, I partnered closely with developers to keep the codebase scalable, performant, and clean. I also built reusable UI components to ensure design integrity carried through to production. \nAlong the way, I've been supported by my daughter—now growing into a confident co-founder, learning fast, and making decisions of her own. It's been part mentorship, part adventure.",
+      description: "I ideated and executed JustScore end-to-end—from brand and UX to a polished, production-ready UI code. The goal? A performance management platform that's simple, actionable, and genuinely motivating. I shaped not just the product, but the business: defining the model, pricing, and go-to-market. On the engineering side, I'm working closely with engineers to keep the codebase scalable, performant, and clean. Quality and security for us is not negotiable. I also built reusable UI components to ensure design integrity carried through to production. Along the way, I've been supported by my daughter—now growing into a confident co-founder, learning fast, and making decisions of her own. It's been part mentorship, part adventure.",
       keyResponsibilities: [
         "Bootstrapped the business to learn fast and hands-on.",
         "Coded the UI—no handoff, no gaps.",
@@ -82,7 +82,7 @@ export interface GridItem {
         {
           id: 5,
           type: 'text',
-          content: 'Web App\nMobile Native\nAPIs first\n+'
+          content: 'Web App\nMobile Native\nAPI first\n+'
         },
         {
           id: 6,
@@ -95,21 +95,42 @@ export interface GridItem {
           id: 7,
           type: 'image',
           src: '/images/work/justscore/5.webp',
-          alt: 'JustScore project 5',
+          alt: 'JustScore',
           aspectRatio: 'landscape'
         },
         {
           id: 8,
           type: 'image',
-          src: '/images/work/justscore/6.webp',
-          alt: 'JustScore project 5',
+          src: '/images/work/justscore/7.webp',
+          alt: 'JustScore',
           aspectRatio: 'landscape'
         },
         {
           id: 9,
+          type: 'image',
+          src: '/images/work/justscore/8.webp',
+          alt: 'JustScore',
+          aspectRatio: 'landscape'
+        },
+        {
+          id: 10,
+          type: 'image',
+          src: '/images/work/justscore/6.webp',
+          alt: 'JustScore',
+          aspectRatio: 'landscape'
+        },
+        {
+          id: 11,
+          type: 'image',
+          src: '/images/work/justscore/9.webp',
+          alt: 'JustScore',
+          aspectRatio: 'landscape'
+        },
+        {
+          id: 12,
           type: 'text',
           content: 'Product Design\nBranding\nMarketing\n+'
-        }
+        },
       ]
     },
     {
