@@ -132,7 +132,7 @@ const ContentSection = memo(() => (
       id="hero-heading"
       className="font-heading font-bold text-5xl md:text-6xl heading-tight text-foreground mb-8 xl:mb-8 px-6 lg:px-0"
     >
-      Design+ for what&apos;s now—and next.
+      Design+ for today—and tomorrow.
     </h1>
 
     {/* Main description with proper semantic structure */}
