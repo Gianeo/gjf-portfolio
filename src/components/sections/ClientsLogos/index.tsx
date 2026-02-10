@@ -1,9 +1,17 @@
 'use client';
 
-import { useState, useCallback, useMemo, memo } from "react";
+import { useMemo, memo, useCallback, useState } from "react";
 import Image from "next/image";
-import { useInView } from "react-intersection-observer";
-import { ArrowRight } from "phosphor-react";
+import { useInView as useIntersectionInView } from "react-intersection-observer";
+import {
+  useReducedMotion,
+  useSpring,
+  useMotionValue,
+  type MotionValue,
+} from "motion/react";
+import { springPresets } from "@/system/motion-presets";
+import { BlindReveal } from "@/components/motion";
+import { useScrollRange } from "@/hooks/useScrollRange";
 
 interface ClientsLogosProps {
   className?: string;
@@ -125,15 +133,10 @@ const clients = [
   },
 ];
 
-// Memoized optimized logo component with enhanced accessibility
-// Replace the OptimizedLogoContainer component in ClientsLogos with this fixed version:
-
-// Replace the OptimizedLogoContainer component in ClientsLogos with this fixed version:
-
 const OptimizedLogoContainer = memo(({ 
   client,
   priority = false,
-  delay = 0
+  delay = 0,
 }: {
   client: typeof clients[0];
   priority?: boolean;
@@ -143,7 +146,7 @@ const OptimizedLogoContainer = memo(({
   const [hasError, setHasError] = useState(false);
 
   // Lazy loading with intersection observer
-  const { ref, inView } = useInView({
+  const { ref, inView } = useIntersectionInView({
     threshold: 0.1,
     triggerOnce: true,
     skip: priority,
@@ -167,13 +170,13 @@ const OptimizedLogoContainer = memo(({
   return (
     <figure 
       ref={ref} 
-      className="group relative flex items-center justify-center rounded-lg aspect-[3/2] w-full"
+      className="group relative flex items-center justify-center aspect-3/2 w-full "
       role="img"
       aria-label={`${client.name} logo - ${client.industry} company`}
     >
       {/* Logo Container with semantic meaning */}
       <div 
-        className="relative bg-neutral-100 flex items-center justify-center w-full h-full p-1 lg:p-6 z-30"
+        className="relative backdrop-blur-md bg-black/20 flex items-center justify-center w-full h-full p-1 lg:p-6 z-30"
         role="presentation"
       >
         <div className="relative w-full h-full flex items-center justify-center">
@@ -188,8 +191,8 @@ const OptimizedLogoContainer = memo(({
               onError={handleError}
               className={`w-auto h-auto object-contain transition-all duration-500 filter grayscale group-hover:grayscale-0
                 max-w-[100px] sm:max-w-[131px] lg:max-w-[163px] 
-                max-h-[32px] sm:max-h-[42px] lg:max-h-[52px] ${
-                isLoaded ? 'opacity-60 group-hover:opacity-100' : 'opacity-0'
+                max-h-8 sm:max-h-[42px] lg:max-h-[52px] ${
+                isLoaded ? 'opacity-50 group-hover:opacity-100' : 'opacity-0'
               }`}
               priority={priority}
               quality={90}
@@ -200,7 +203,7 @@ const OptimizedLogoContainer = memo(({
           {/* Loading placeholder with better UX */}
           {shouldLoad && (!isLoaded || hasError) && (
             <div 
-              className="absolute inset-0 bg-neutral-200 animate-pulse rounded-lg"
+              className="absolute inset-0 animate-pulse "
               aria-label={hasError ? `Failed to load ${client.name} logo` : `Loading ${client.name} logo`}
             />
           )}
@@ -218,42 +221,31 @@ const OptimizedLogoContainer = memo(({
 OptimizedLogoContainer.displayName = 'OptimizedLogoContainer';
 
 // Memoized "and many more" component with semantic meaning
-const AndManyMoreBox = memo(() => (
+const AndManyMoreBox = memo(() => {
+  return (
   <div 
-    className="relative flex items-center justify-center rounded-lg aspect-[3/2] w-full"
+    className="relative flex items-center justify-center aspect-3/2 w-full"
     role="text"
     aria-label="Additional client relationships beyond those displayed"
   >
-    <div className="bg-neutral-100 text-[10px] sm:text-xs text-neutral-600 text-left font-mono flex items-center justify-center w-full h-full p-1 lg:p-6">
+    <div className="backdrop-blur-md bg-black/20 text-sm text-muted text-left font-mono flex items-center justify-center w-full h-full p-1 lg:p-6">
       <div className="max-w-sm mx-auto" role="presentation">
         and many more
       </div>
     </div>
   </div>
-));
+)});
 
 AndManyMoreBox.displayName = 'AndManyMoreBox';
 
-// Memoized header section with semantic navigation
-const HeaderSection = memo(() => (
-  <header className="sticky top-0 z-50 glass border-b border-border/50">
-    <div className="flex justify-between px-6 lg:px-12 py-4">
-      <div 
-        className="flex items-center justify-end gap-4 text-xs font-mono text-muted-foreground"
-        role="banner"
-        aria-label="Client section navigation"
-      >
-        <ArrowRight size={16} aria-hidden="true" />
-        <span>From 0-1 to Enterprises</span>
-      </div>
-    </div>
-  </header>
-));
-
-HeaderSection.displayName = 'HeaderSection';
-
 // Memoized logo grid component with enhanced semantics
-const LogoGrid = memo(({ validClients }: { validClients: typeof clients }) => {
+const LogoGrid = memo(({
+  validClients,
+  progress,
+}: {
+  validClients: typeof clients;
+  progress?: MotionValue<number>;
+}) => {
   // Create staggered loading delays for smooth loading experience
   const clientsWithDelays = useMemo(() => 
     validClients.map((client, index) => ({
@@ -263,9 +255,11 @@ const LogoGrid = memo(({ validClients }: { validClients: typeof clients }) => {
     }))
   , [validClients]);
 
+  const totalSlots = clientsWithDelays.length + 1;
+
   return (
     <section 
-      className="grid grid-cols-3 lg:grid-cols-5 gap-1 auto-rows-fr"
+      className="grid grid-cols-3 xl:grid-cols-5 gap-1 auto-rows-fr"
       role="region"
       aria-label="Client companies and partnerships"
     >
@@ -277,25 +271,46 @@ const LogoGrid = memo(({ validClients }: { validClients: typeof clients }) => {
         </p>
       </div>
 
-      {clientsWithDelays.map((client) => (
-        <OptimizedLogoContainer
+      {clientsWithDelays.map((client, index) => (
+        <BlindReveal
           key={`client-${client.name}`}
-          client={client}
-          priority={client.priority}
-          delay={client.delay}
-        />
+          index={index}
+          total={totalSlots}
+          progress={progress}
+        >
+          <OptimizedLogoContainer
+            client={client}
+            priority={client.priority}
+            delay={client.delay}
+          />
+        </BlindReveal>
       ))}
-      <AndManyMoreBox />
+      <BlindReveal
+        index={clientsWithDelays.length}
+        total={totalSlots}
+        progress={progress}
+      >
+        <AndManyMoreBox />
+      </BlindReveal>
     </section>
   );
 });
 
 LogoGrid.displayName = 'LogoGrid';
 
-export default function ClientsLogos({ className = '' }: ClientsLogosProps) {
+export default function ClientsLogos({
+  className = '',
+}: ClientsLogosProps) {
   
   // Memoize clients data to prevent recreation
   const memoizedClients = useMemo(() => clients, []);
+  const { ref: containerRef, progress: scrollYProgress } = useScrollRange<HTMLDivElement>({
+    offset: ["start end", "end 75%"],
+    endOffsetRem: 0,
+  });
+  const staticProgress = useMotionValue(1);
+  const springProgress = useSpring(scrollYProgress, springPresets.calm);
+  const revealProgress = useReducedMotion() ? staticProgress : springProgress;
 
   // Generate structured data for client organizations
   const clientsStructuredData = useMemo(() => ({
@@ -331,7 +346,7 @@ export default function ClientsLogos({ className = '' }: ClientsLogosProps) {
   const validClients = useMemo(() => memoizedClients, [memoizedClients]);
 
   return (
-    <section className="bg-background text-foreground">
+    <section className="relative text-foreground backdrop-blur-md bg-background/20">
       {/* Structured data for client relationships */}
       <script
         type="application/ld+json"
@@ -340,10 +355,7 @@ export default function ClientsLogos({ className = '' }: ClientsLogosProps) {
         }}
       />
 
-      <HeaderSection />
-      
-      <main className={`grid grid-cols-7 m-6 lg:m-12 pb-16 lg:pb-0 ${className}`}>
-        <div className="col-span-7">
+      <main ref={containerRef} className={`relative pb-16 lg:pb-0 ${className}`}>
           <div className="mb-6 sr-only">
             <h2>Client Portfolio Overview</h2>
             <p>
@@ -351,8 +363,10 @@ export default function ClientsLogos({ className = '' }: ClientsLogosProps) {
               including Fortune 500 companies, government agencies, startups, and international corporations.
             </p>
           </div>
-          <LogoGrid validClients={validClients} />
-        </div>
+          <LogoGrid
+            validClients={validClients}
+            progress={revealProgress}
+          />
       </main>
     </section>
   );

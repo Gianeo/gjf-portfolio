@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Script from 'next/script';
-import { switzer, azeretMono } from "@/lib/fonts";
-import "./globals.css";
 import FullStory from '@/components/analytics/FullStory';
+import { switzer, azeretMono } from "@/lib/fonts";
+import { ThemeProvider } from "@/components/providers/ThemeProvider";
+import { MotionDebugProvider } from "@/components/motion";
+import "./globals.css";
 
 // Enhanced metadata with comprehensive SEO
 export const metadata: Metadata = {
@@ -182,6 +184,19 @@ export default function RootLayout({
       className="scroll-smooth" // Improves scroll behavior
     >
       <head>
+        <Script id="theme-init" strategy="beforeInteractive">
+          {`
+            (function () {
+              try {
+                var saved = localStorage.getItem('theme');
+                var theme = saved || 'dark';
+                document.documentElement.classList.toggle('dark', theme === 'dark');
+              } catch (e) {
+                document.documentElement.classList.add('dark');
+              }
+            })();
+          `}
+        </Script>
         {/* Structured Data - JSON-LD */}
         <script
           type="application/ld+json"
@@ -206,41 +221,43 @@ export default function RootLayout({
         {/* Security headers */}
         <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
         <meta httpEquiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
-        
       </head>
       <body
         className={`${switzer.variable} ${azeretMono.variable} font-copy antialiased`}
         suppressHydrationWarning
       >
         <FullStory orgId="C5N0G" />
+        <ThemeProvider>
+          <MotionDebugProvider>
+          {/* Skip to main content link for accessibility */}
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+          >
+            Skip to main content
+          </a>
 
-        {/* Skip to main content link for accessibility */}
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
-        >
-          Skip to main content
-        </a>
+          {children}
+          </MotionDebugProvider>
 
-        {children}
-
-        {/* Google Analytics using Next.js Script component - only in production */}
-        {process.env.NODE_ENV === 'production' && (
-          <>
-            <Script
-              src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"
-              strategy="afterInteractive"
-            />
-            <Script id="google-analytics" strategy="afterInteractive">
-              {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', 'GA_MEASUREMENT_ID');
-              `}
-            </Script>
-          </>
-        )}
+          {/* Google Analytics using Next.js Script component - only in production */}
+          {process.env.NODE_ENV === 'production' && (
+            <>
+              <Script
+                src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"
+                strategy="afterInteractive"
+              />
+              <Script id="google-analytics" strategy="afterInteractive">
+                {`
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', 'GA_MEASUREMENT_ID');
+                `}
+              </Script>
+            </>
+          )}
+        </ThemeProvider>
       </body>
     </html>
   );

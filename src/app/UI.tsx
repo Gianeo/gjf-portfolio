@@ -1,16 +1,16 @@
 "use client";
 
 import { useState } from "react";
-import { 
-  Moon, 
-  Sun, 
-  Palette, 
-  Layout, 
-  Sparkle,
-  ArrowRight,
-  Play,
-  Star
-} from "phosphor-react";
+import {
+  MoonIcon,
+  SunIcon,
+  PaletteIcon,
+  LayoutIcon,
+  SparkleIcon,
+  ArrowRightIcon,
+  PlayIcon,
+  StarIcon
+} from "@phosphor-icons/react";
 
 export default function TestPage() {
   const [isDark, setIsDark] = useState(false);
@@ -30,9 +30,9 @@ export default function TestPage() {
           aria-label="Toggle theme"
         >
           {isDark ? (
-            <Sun size={20} className="text-foreground group-hover:rotate-12 transition-transform" />
+            <SunIcon size={20} className="text-foreground group-hover:rotate-12 transition-transform" />
           ) : (
-            <Moon size={20} className="text-foreground group-hover:rotate-12 transition-transform" />
+            <MoonIcon size={20} className="text-foreground group-hover:rotate-12 transition-transform" />
           )}
         </button>
       </div>
@@ -51,7 +51,7 @@ export default function TestPage() {
         {/* Typography Test */}
         <section className="space-y-8">
           <div className="flex items-center gap-3 mb-6">
-            <Sparkle size={24} className="text-primary" />
+            <SparkleIcon size={24} className="text-primary" />
             <h2 className="text-3xl font-heading font-semibold">Typography System</h2>
           </div>
           
@@ -110,34 +110,34 @@ export default function TestPage() {
         {/* Color System Test */}
         <section className="space-y-8">
           <div className="flex items-center gap-3 mb-6">
-            <Palette size={24} className="text-primary" />
+            <PaletteIcon size={24} className="text-primary" />
             <h2 className="text-3xl font-heading font-semibold">Color System</h2>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
             {/* Primary Colors */}
             <div className="space-y-2">
-              <div className="h-16 bg-primary rounded-lg"></div>
+              <div className="h-16 bg-primary "></div>
               <p className="text-xs font-copy text-center">Primary</p>
             </div>
             <div className="space-y-2">
-              <div className="h-16 bg-secondary rounded-lg"></div>
+              <div className="h-16 bg-secondary "></div>
               <p className="text-xs font-copy text-center">Secondary</p>
             </div>
             <div className="space-y-2">
-              <div className="h-16 bg-accent rounded-lg"></div>
+              <div className="h-16 bg-accent "></div>
               <p className="text-xs font-copy text-center">Accent</p>
             </div>
             <div className="space-y-2">
-              <div className="h-16 bg-muted rounded-lg"></div>
+              <div className="h-16 bg-muted "></div>
               <p className="text-xs font-copy text-center">Muted</p>
             </div>
             <div className="space-y-2">
-              <div className="h-16 bg-destructive rounded-lg"></div>
+              <div className="h-16 bg-destructive "></div>
               <p className="text-xs font-copy text-center">Destructive</p>
             </div>
             <div className="space-y-2">
-              <div className="h-16 bg-success rounded-lg"></div>
+              <div className="h-16 bg-success "></div>
               <p className="text-xs font-copy text-center">Success</p>
             </div>
           </div>
@@ -146,7 +146,7 @@ export default function TestPage() {
         {/* Component Test */}
         <section className="space-y-8">
           <div className="flex items-center gap-3 mb-6">
-            <Layout size={24} className="text-primary" />
+            <LayoutIcon size={24} className="text-primary" />
             <h2 className="text-3xl font-heading font-semibold">Component Styles</h2>
           </div>
 
@@ -155,13 +155,13 @@ export default function TestPage() {
             <div className="glass p-6 rounded-2xl space-y-4">
               <h3 className="font-heading font-semibold text-primary">Buttons</h3>
               <div className="space-y-3">
-                <button className="w-full bg-primary text-primary-foreground px-4 py-2 rounded-lg hover:bg-primary-hover transition-colors font-copy font-medium">
+                <button className="w-full bg-primary text-primary-foreground px-4 py-2  hover:bg-primary-hover transition-colors font-copy font-medium">
                   Primary Button
                 </button>
-                <button className="w-full bg-secondary text-secondary-foreground px-4 py-2 rounded-lg hover:bg-secondary-hover transition-colors font-copy font-medium">
+                <button className="w-full bg-secondary text-secondary-foreground px-4 py-2  hover:bg-secondary-hover transition-colors font-copy font-medium">
                   Secondary Button
                 </button>
-                <button className="w-full border border-border text-foreground px-4 py-2 rounded-lg hover:bg-accent transition-colors font-copy font-medium">
+                <button className="w-full border border-border text-foreground px-4 py-2  hover:bg-accent transition-colors font-copy font-medium">
                   Outline Button
                 </button>
               </div>
@@ -174,7 +174,7 @@ export default function TestPage() {
                 This card demonstrates the glass morphism effect with backdrop blur and transparency.
               </p>
               <div className="flex items-center gap-2 text-sm">
-                <Star size={16} className="text-warning" />
+                <StarIcon size={16} className="text-warning" />
                 <span className="font-copy font-medium">Premium Feature</span>
               </div>
             </div>
@@ -187,7 +187,7 @@ export default function TestPage() {
               </p>
               <button className="flex items-center gap-2 text-primary hover:gap-3 transition-all text-sm font-copy font-medium">
                 <span>Learn More</span>
-                <ArrowRight size={16} />
+                <ArrowRightIcon size={16} />
               </button>
             </div>
           </div>
@@ -196,7 +196,7 @@ export default function TestPage() {
         {/* Animation Test */}
         <section className="space-y-8">
           <div className="flex items-center gap-3 mb-6">
-            <Sparkle size={24} className="text-primary" />
+            <SparkleIcon size={24} className="text-primary" />
             <h2 className="text-3xl font-heading font-semibold">Animation System</h2>
           </div>
 
@@ -221,13 +221,13 @@ export default function TestPage() {
         {/* Responsive Test */}
         <section className="space-y-8">
           <div className="flex items-center gap-3 mb-6">
-            <Play size={24} className="text-primary" />
+            <PlayIcon size={24} className="text-primary" />
             <h2 className="text-3xl font-heading font-semibold">Responsive Design</h2>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
             {Array.from({ length: 6 }, (_, i) => (
-              <div key={i} className="aspect-square bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg flex items-center justify-center">
+              <div key={i} className="aspect-square bg-linear-to-br from-primary/20 to-accent/20  flex items-center justify-center">
                 <span className="text-sm font-copy font-medium">{i + 1}</span>
               </div>
             ))}
@@ -241,7 +241,7 @@ export default function TestPage() {
         {/* Font Loading Status */}
         <section className="space-y-8">
           <div className="flex items-center gap-3 mb-6">
-            <Sparkle size={24} className="text-primary" />
+            <SparkleIcon size={24} className="text-primary" />
             <h2 className="text-3xl font-heading font-semibold">Font Loading Status</h2>
           </div>
 

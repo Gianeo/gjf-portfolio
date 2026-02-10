@@ -1,0 +1,109 @@
+/* File: src/system/design-tokens.css */
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  /* Typography Families */
+  --font-copy: var(--font-switzer), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-heading: var(--font-switzer), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: var(--font-azeret-mono), "SF Mono", "Monaco", "Inconsolata", "Roboto Mono", "Courier New", monospace;
+  
+  /* Compatibility aliases */
+  --font-sans: var(--font-copy);
+  --font-serif: var(--font-heading);
+
+  /* Radius */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* Semantic color aliases */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Typography scale (only four sizes) */
+  --text-sm: 0.75rem;   /* 12px */
+  /* --text-base: 1.125rem; 18px */
+  --text-base: 0.96rem; /* 18px */
+  --text-md: 2.5rem;   /* 56px only for mobile */
+  --text-lg: 3.5rem;   /* 56px */
+  --text-xl: 5.125rem;      /* 82px */
+
+  /* Motion tokens */
+  --motion-duration-short: 0.35s;
+  --motion-duration-medium: 0.6s;
+  --motion-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --motion-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Neutral scale (HSL) */
+  --neutral-lightest: hsl(20, 1%, 80%);
+  --neutral-lighter: hsl(20, 1%, 65%);
+  --neutral-light: hsl(20, 1%, 40%);
+  --neutral-dark: hsl(20, 1%, 15%);
+  --neutral-darker: hsl(20, 1%, 10%);
+  --neutral-darkest: hsl(20, 1%, 5%);
+
+  --accent-base: hsl(8, 100%, 44%);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: var(--neutral-lightest);
+  --foreground: var(--neutral-dark);
+  --card: var(--neutral-lightest);
+  --card-foreground: var(--neutral-darkest);
+  --popover: var(--neutral-lightest);
+  --popover-foreground: var(--neutral-darkest);
+  --primary: var(--neutral-darkest);
+  --primary-foreground: var(--neutral-lightest);
+  --secondary: var(--neutral-dark);
+  --secondary-foreground: var(--neutral-lightest);
+  --muted: var(--neutral-lightest);
+  --muted-foreground: var(--neutral-dark);
+  /* --accent: oklch(0.605 0.24 17); */
+  --accent: var(--accent-base);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: var(--neutral-lighter);
+  --input: var(--neutral-lighter);
+  --ring: var(--neutral-light);
+}
+
+.dark {
+  --background: var(--neutral-darkest);
+  --foreground: var(--neutral-light);
+  --card: var(--neutral-dark);
+  --card-foreground: var(--neutral-lightest);
+  --popover: var(--neutral-dark);
+  --popover-foreground: var(--neutral-lightest);
+  --primary: var(--neutral-lightest);
+  --primary-foreground: var(--neutral-darkest);
+  --secondary: var(--neutral-darker);
+  --secondary-foreground: var(--neutral-lighter);
+  --muted: var(--neutral-dark);
+  --muted-foreground: var(--neutral-light);
+  /* --accent: oklch(0.605 0.24 17); */
+  --accent: var(--accent-base);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: var(--neutral-dark);
+  --input: var(--neutral-dark);
+  --ring: var(--neutral-light);
+}

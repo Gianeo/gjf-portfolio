@@ -3,20 +3,15 @@
 import { useState, useCallback, useMemo, memo } from "react";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
-import {
-  ArrowRightIcon,
-  MapPinIcon,
-  EnvelopeIcon,
-  TagIcon,
-  CalendarIcon,
-  LinkIcon as ExternalLinkIcon,
-} from "@phosphor-icons/react";
+import { MapPinIcon, EnvelopeIcon, TagIcon, CalendarIcon, LinkIcon as ExternalLinkIcon } from "@phosphor-icons/react";
 
 // Import the data structure
 import { personalProfileData, PersonalImage } from "./data";
 import type { PersonalProfile } from "./data";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { SectionHeader } from "@/components/primitives/SectionHeader";
+import { FadeReveal } from "@/components/motion";
 
 interface PersonalProfileProps {
   profile?: PersonalProfile;
@@ -35,11 +30,9 @@ const formatTextWithLineBreaks = (text: string) => {
 // Memoized optimized image component with enhanced accessibility
 const OptimizedImageContainer = memo(({
   image,
-  // className = "", // Commented out unused parameter
   priority = false
 }: {
   image: PersonalImage;
-  className?: string;
   priority?: boolean;
 }) => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -67,7 +60,7 @@ const OptimizedImageContainer = memo(({
   return (
     <figure 
       ref={ref} 
-      className="group relative overflow-hidden bg-neutral-100 rounded-lg glass cursor-pointer h-full w-full"
+      className="group relative overflow-hidden glass cursor-pointer h-full w-full"
       role="img"
       aria-label={`Personal photo: ${image.alt}`}
     >
@@ -82,8 +75,8 @@ const OptimizedImageContainer = memo(({
       {/* Enhanced hover effects for visual feedback */}
       {isLoaded && !hasError && (
         <>
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-30" />
+          <div className="absolute inset-0 bg-linear-to-br from-primary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20" />
+          <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-30" />
           <div 
             className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-40"
             aria-hidden="true"
@@ -96,7 +89,7 @@ const OptimizedImageContainer = memo(({
       {/* Image container with enhanced alt text */}
       {shouldLoad && !hasError && (
         <div className="absolute inset-0 z-20">
-          <div className="relative w-full h-full overflow-hidden rounded-lg">
+          <div className="relative w-full h-full overflow-hidden">
             <Image
               src={image.src}
               alt={`${image.alt} - Personal photo showcasing professional and adventure lifestyle`}
@@ -146,7 +139,6 @@ const ImageRow = memo(({
         <OptimizedImageContainer
           key={`profile-${image.id}`}
           image={image}
-          className="h-full w-full"
           priority={priority && index === 0} // Only first image of first row is priority
         />
       ))}
@@ -155,24 +147,6 @@ const ImageRow = memo(({
 });
 
 ImageRow.displayName = 'ImageRow';
-
-// Memoized header section with enhanced navigation
-const HeaderSection = memo(() => (
-  <header className="sticky top-0 z-50 glass border-b border-border/50">
-    <div className="flex justify-between px-6 lg:px-12 py-4">
-      <div 
-        className="flex items-center gap-4 text-xs font-mono text-muted-foreground"
-        role="banner"
-        aria-label="Profile section navigation"
-      >
-        <ArrowRightIcon size={16} aria-hidden="true" />
-        <span>Profile</span>
-      </div>
-    </div>
-  </header>
-));
-
-HeaderSection.displayName = 'HeaderSection';
 
 // Memoized contact actions with enhanced accessibility
 const ContactActions = memo(({ profile }: { profile: PersonalProfile }) => (
@@ -231,10 +205,8 @@ const HeroSection = memo(({ profile }: { profile: PersonalProfile }) => (
   <section className="relative grid grid-cols-1 lg:grid-cols-12 pt-8 lg:pt-20 pb-8 px-6 lg:px-1">
     <article className="lg:col-start-3 lg:col-span-4">
       {/* Profile metadata */}
-      <div 
-        className="flex flex-wrap gap-4 mb-8 text-xs text-muted-foreground"
-        role="group"
-        aria-label="Profile metadata"
+      <FadeReveal
+        className="flex flex-wrap gap-4 mb-8 text-xs"
       >
         <div className="flex items-center gap-2 font-mono">
           <TagIcon size={16} aria-hidden="true" />
@@ -248,28 +220,32 @@ const HeroSection = memo(({ profile }: { profile: PersonalProfile }) => (
           <MapPinIcon size={16} aria-hidden="true" />
           <span>{profile.location}</span>
         </div>
-      </div>
+      </FadeReveal>
 
       {/* Main heading with proper structure */}
-      <h1 
-        className="font-heading font-bold text-5xl leading-13 heading-tight mb-6"
-        id="profile-heading"
-      >
-        {formatTextWithLineBreaks(profile.name)}
-      </h1>
+      <FadeReveal>
+        <h1
+          className="heading-display text-primary mb-6"
+          id="profile-heading"
+        >
+          {formatTextWithLineBreaks(profile.name)}
+        </h1>
+      </FadeReveal>
 
       {/* Personal statement with enhanced readability */}
-      <div 
-        className="font-copy text-lg md:text-base text-muted-foreground leading-relaxed mb-8 prose-optimized max-w-lg"
+      <div
+        className="body-base mb-8 max-w-lg"
         role="region"
         aria-labelledby="profile-heading"
         aria-describedby="profile-statement"
       >
         <div id="profile-statement" className="space-y-4">
           {profile.personalStatement.split('\n\n').map((paragraph, index) => (
-            <p key={index}>
-              {formatTextWithLineBreaks(paragraph)}
-            </p>
+            <FadeReveal key={index}>
+              <p>
+                {formatTextWithLineBreaks(paragraph)}
+              </p>
+            </FadeReveal>
           ))}
         </div>
       </div>
@@ -359,20 +335,9 @@ export default function PersonalProfile({
     }
   }), [memoizedProfile]);
 
-  // Commented out unused variables - ready for future image gallery feature
-  // const imageRows = useMemo(() => {
-  //   const organizeImages = (images: PersonalImage[]) => {
-  //     return {
-  //       row1: images.slice(0, 2),
-  //       row2: images.slice(2, 4),
-  //       row3: images.slice(4, 6),
-  //     };
-  //   };
-  //   return organizeImages(memoizedProfile.images);
-  // }, [memoizedProfile.images]);
 
   return (
-    <section className="bg-background text-foreground">
+    <section className="bg-background text-foreground pb-48">
       {/* Comprehensive structured data */}
       <script
         type="application/ld+json"
@@ -381,7 +346,7 @@ export default function PersonalProfile({
         }}
       />
 
-      <HeaderSection />
+      <SectionHeader icon={null} label="Profile" />
       
       <main role="main" aria-label="Personal profile and background">
         <div className="sr-only">

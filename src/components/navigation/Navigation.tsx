@@ -1,44 +1,57 @@
 'use client';
 
-import { Envelope, InstagramLogo, LinkedinLogo } from 'phosphor-react';
+import { EnvelopeIcon, InstagramLogoIcon, LinkedinLogoIcon, MoonIcon, SunIcon } from '@phosphor-icons/react';
+import { useScroll } from '@/components/layout/SmoothScrollLayout';
+import { useTheme } from '@/components/providers/ThemeProvider';
 
 interface NavigationProps {
   className?: string;
 }
 
 export default function Navigation({ className = '' }: NavigationProps) {
-  // Handle smooth scroll to sections
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start' 
-      });
-      // Update focus for accessibility
-      element.focus({ preventScroll: true });
-    }
+  const { scrollToSection } = useScroll();
+  const { theme, toggleTheme } = useTheme();
+
+  // Handle smooth scroll to sections with Lenis
+  const handleNavClick = (sectionId: string) => {
+    scrollToSection(`#${sectionId}`);
   };
 
   return (
-    <nav 
-      className={`relative z-10 flex items-center justify-between p-6 lg:px-12 lg:py-8 ${className}`}
+    <nav
+      className={`relative w-full z-10 flex items-center justify-between px-6 lg:px-12 lg:py-8 ${className}`}
       role="navigation"
       aria-label="Main navigation"
     >
-      {/* Logo/Brand */}
-      <div className="flex items-center">
-        <a 
+      {/* Logo/Brand + Theme Switcher */}
+      <div className="flex items-center gap-3">
+        <a
           href="#hero"
           onClick={(e) => {
             e.preventDefault();
-            scrollToSection('hero');
+            handleNavClick('hero');
           }}
-          className="text-xs font-mono text-neutral-700 hover:text-neutral-900 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:rounded"
-          aria-label="Gianni J. Favaretto - Go to top of page"
+          className="text-xs tracking-widest font-mono text-primary hover:text-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:rounded"
+          aria-label="Gianeo Studio - Go to top of page"
         >
-          <span aria-hidden="true">Gianni J. Favaretto</span>
+          <span aria-hidden="true">Gianni J Favaretto</span>
         </a>
+      </div>
+
+      <div className='hidden'>
+        {/* Theme Switcher */}
+        <button
+          onClick={toggleTheme}
+          className="p-2 text-muted-foreground hover:text-foreground transition-colors rounded-full hover:bg-accent/10 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+          aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+          title={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+        >
+          {theme === 'light' ? (
+            <MoonIcon className="size-4" aria-hidden="true" />
+          ) : (
+            <SunIcon className="size-4" aria-hidden="true" />
+          )}
+        </button>
       </div>
 
       {/* Skip navigation menu for keyboard users */}
@@ -50,7 +63,7 @@ export default function Navigation({ className = '' }: NavigationProps) {
               className="px-3 py-1 text-sm bg-primary text-primary-foreground rounded focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
               onClick={(e) => {
                 e.preventDefault();
-                scrollToSection('main-content');
+                handleNavClick('main-content');
               }}
             >
               Main Content
@@ -62,7 +75,7 @@ export default function Navigation({ className = '' }: NavigationProps) {
               className="px-3 py-1 text-sm bg-primary text-primary-foreground rounded focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
               onClick={(e) => {
                 e.preventDefault();
-                scrollToSection('work-history');
+                handleNavClick('work-history');
               }}
             >
               Work History
@@ -74,7 +87,7 @@ export default function Navigation({ className = '' }: NavigationProps) {
               className="px-3 py-1 text-sm bg-primary text-primary-foreground rounded focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
               onClick={(e) => {
                 e.preventDefault();
-                scrollToSection('profile');
+                handleNavClick('profile');
               }}
             >
               Profile
@@ -95,8 +108,8 @@ export default function Navigation({ className = '' }: NavigationProps) {
           aria-label="Send email to Gianni Favaretto"
           role="listitem"
         >
-          <Envelope 
-            className="size-5" 
+          <EnvelopeIcon
+            className="size-5"
             aria-hidden="true"
           />
           <span className="sr-only">Email: giannijfavaretto@gmail.com</span>
@@ -110,8 +123,8 @@ export default function Navigation({ className = '' }: NavigationProps) {
           aria-label="Follow Gianni Favaretto on Instagram (opens in new tab)"
           role="listitem"
         >
-          <InstagramLogo 
-            className="size-5" 
+          <InstagramLogoIcon
+            className="size-5"
             aria-hidden="true"
           />
           <span className="sr-only">Instagram profile</span>
@@ -125,8 +138,8 @@ export default function Navigation({ className = '' }: NavigationProps) {
           aria-label="Connect with Gianni Favaretto on LinkedIn (opens in new tab)"
           role="listitem"
         >
-          <LinkedinLogo 
-            className="size-5" 
+          <LinkedinLogoIcon
+            className="size-5"
             aria-hidden="true"
           />
           <span className="sr-only">LinkedIn profile</span>

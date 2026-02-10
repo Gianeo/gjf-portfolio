@@ -1,0 +1,203 @@
+/* File: src/system/design-utilities.css */
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+  }
+}
+
+@layer utilities {
+  .font-copy {
+    font-display: swap;
+    font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+  }
+  
+  .font-heading {
+    font-display: swap;
+    font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1, 'ss01' 1;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  .heading-tight {
+    letter-spacing: -0.025em;
+  }
+  
+  .heading-normal {
+    letter-spacing: -0.015em;
+  }
+
+  p, .prose-optimized {
+    @apply max-w-xl;
+    font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+  }
+  
+  .glass {
+    @apply backdrop-blur-md bg-background/40 border border-border/20;
+  }
+
+  /* Typographic roles */
+  .body-label {
+    @apply text-[10px] font-mono font-bold uppercase tracking-[0.42em];
+  }
+  .body-sm {
+    @apply text-sm font-normal tracking-wider subpixel-antialiased;
+  }
+  .body-base {
+    @apply text-base font-normal leading-6;
+  }
+  .body-base-responsive {
+    @apply text-base md:text-sm md:leading-5 xl:text-base xl:leading-6 font-medium;
+  }
+  .heading-sm {
+    @apply text-base;
+  }
+  .heading-base {
+    @apply leading-15 tracking-[-0.025em];
+    font-size: var(--text-md);
+  }
+  @media (min-width: 768px) {
+    .heading-base {
+      font-size: var(--text-lg);
+    }
+  }
+  .heading-display {
+    @apply text-lg md:text-xl leading-15 md:leading-20 tracking-[-0.025em];
+  }
+  .body-base, .heading-sm, .heading-base, .heading-display {
+    @apply antialiased;
+  }
+  .body-sm, .body-base, .body-base-responsive {
+    @apply font-copy;
+  }
+  .heading-sm, .heading-base, .heading-display {
+    @apply font-heading font-bold;
+  }
+  .caption {
+    @apply font-copy text-sm font-normal;
+  }
+
+  .text-primary {
+    color: var(--neutral-darkest);
+  }
+  .dark .text-primary {
+    color: var(--neutral-lightest);
+  }
+  .text-secondary {
+    color: var(--neutral-darker);
+  }
+  .dark .text-secondary {
+    color: var(--neutral-lighter);
+  }
+
+  /* Neutral scale utilities (usable as Tailwind-style classes) */
+  .bg-neutral-lightest { background-color: var(--neutral-lightest); }
+  .bg-neutral-lighter { background-color: var(--neutral-lighter); }
+  .bg-neutral-light { background-color: var(--neutral-light); }
+  .bg-neutral-dark { background-color: var(--neutral-dark); }
+  .bg-neutral-darker { background-color: var(--neutral-darker); }
+  .bg-neutral-darkest { background-color: var(--neutral-darkest); }
+
+  .bg-decoration {
+    @apply bg-muted/25;
+  }
+
+  .text-neutral-lightest { color: var(--neutral-lightest); }
+  .text-neutral-lighter { color: var(--neutral-lighter); }
+  .text-neutral-light { color: var(--neutral-light); }
+  .text-neutral-dark { color: var(--neutral-dark); }
+  .text-neutral-darker { color: var(--neutral-darker); }
+  .text-neutral-darkest { color: var(--neutral-darkest); }
+
+  .border-neutral-lightest { border-color: var(--neutral-lightest); }
+  .border-neutral-lighter { border-color: var(--neutral-lighter); }
+  .border-neutral-light { border-color: var(--neutral-light); }
+  .border-neutral-dark { border-color: var(--neutral-dark); }
+  .border-neutral-darker { border-color: var(--neutral-darker); }
+  .border-neutral-darkest { border-color: var(--neutral-darkest); }
+
+  /* Dark-prefixed helpers so `dark:bg-neutral-darker` works */
+  .dark\:bg-neutral-lightest { background-color: var(--neutral-lightest); }
+  .dark\:bg-neutral-lighter { background-color: var(--neutral-lighter); }
+  .dark\:bg-neutral-light { background-color: var(--neutral-light); }
+  .dark\:bg-neutral-dark { background-color: var(--neutral-dark); }
+  .dark\:bg-neutral-darker { background-color: var(--neutral-darker); }
+  .dark\:bg-neutral-darkest { background-color: var(--neutral-darkest); }
+
+  .text-muted {
+    color: var(--neutral-dark);
+  }
+  .dark .text-muted {
+    color: var(--neutral-light);
+  }
+
+  /* Typography scale overrides (4 sizes total) */
+  .text-sm, .text-xs {
+    font-size: var(--text-sm);
+    line-height: 1.5;
+  }
+
+  .text-base, .text-lg {
+    font-size: var(--text-base);
+    line-height: 1.6;
+  }
+
+  .text-xl, .text-2xl, .text-3xl, .text-4xl {
+    font-size: var(--text-lg);
+    line-height: 1.25;
+  }
+
+  .text-5xl, .text-6xl, .text-7xl, .text-8xl, .text-9xl {
+    font-size: var(--text-xl);
+    line-height: 1.1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (prefers-contrast: high) {
+  body {
+    background: var(--background) !important;
+    color: var(--foreground) !important;
+  }
+}
+
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  
+  .font-copy,
+  .font-heading {
+    color: black !important;
+  }
+}

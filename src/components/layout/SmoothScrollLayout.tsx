@@ -74,7 +74,7 @@ export default function SmoothScrollLayout({ children }: SmoothScrollLayoutProps
     <div className="relative">
       {/* Background gradient - subtle and elegant */}
       <div className="fixed inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-slate-950 dark:via-slate-900 dark:to-slate-800" />
+        <div className="absolute inset-0 bg-linear-to-br from-slate-50 via-white to-slate-100 dark:from-slate-950 dark:via-slate-900 dark:to-slate-800" />
         {/* Subtle noise texture for depth */}
         <div className="absolute inset-0 opacity-[0.02] dark:opacity-[0.05]" 
              style={{
